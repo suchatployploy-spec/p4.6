@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
   <style>
-    :root{--navy:#142443;--ink:#263450;--muted:#69758b;--cream:#f8f6ef;--yellow:#ffd85c;--line:#e6e8ed;--white:#fff;--green:#248565}
+    :root{--navy:#142443;--ink:#263450;--muted:#69758b;--cream:#f8f6ef;--yellow:#ffd85c;--line:#e6e8ed;--white:#fff}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--cream);color:var(--ink);font-family:"Anuphan",sans-serif}
@@ -16,75 +16,77 @@
     button{cursor:pointer}
     button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #e6a900;outline-offset:3px}
     .shell{max-width:1120px;margin:auto;padding:0 28px}
-    .topbar{background:var(--navy);color:white}
+    .topbar{background:var(--navy);color:#fff}
     .topbar-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:18px}
     .brand{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:800;letter-spacing:-.02em}
     .brand-mark{width:42px;height:42px;border-radius:13px;background:var(--yellow);display:grid;place-items:center;color:var(--navy);font-weight:800;font-size:25px}
     .top-pill{border:1px solid #52617b;border-radius:99px;padding:8px 15px;color:#dce5f5;font-size:13px}
-    .hero{background:var(--navy);color:white;overflow:hidden}
-    .hero-inner{position:relative;min-height:365px;display:flex;align-items:center;padding-top:35px;padding-bottom:57px}
+    .hero{background:var(--navy);color:#fff;overflow:hidden}
+    .hero-inner{position:relative;min-height:330px;display:flex;align-items:center;padding-top:35px;padding-bottom:57px}
     .hero-copy{position:relative;z-index:1;max-width:650px}
     .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--yellow);font-size:14px;font-weight:700;letter-spacing:.02em}
-    h1{font-size:clamp(36px,5vw,66px);line-height:1.16;margin:17px 0 17px;letter-spacing:-.055em;font-weight:800}
+    h1{font-size:clamp(36px,5vw,66px);line-height:1.16;margin:17px 0;letter-spacing:-.055em;font-weight:800}
     .hero p{color:#c9d3e5;font-size:17px;line-height:1.8;margin:0 0 26px}
-    .hero-button{border:0;background:var(--yellow);color:var(--navy);border-radius:12px;padding:13px 20px;font-size:15px;font-weight:800;display:inline-flex;align-items:center;gap:9px}
+    .hero-button{border:0;background:var(--yellow);color:var(--navy);border-radius:12px;padding:13px 20px;font-size:15px;font-weight:800;display:inline-flex;align-items:center;gap:9px;text-decoration:none}
     .hero-button:hover{background:#ffe58b}
-    .hero-art{position:absolute;right:28px;top:47px;width:300px;height:270px;opacity:.96}
+    .hero-art{position:absolute;right:28px;top:35px;width:300px;height:270px;opacity:.96}
     .art-circle{position:absolute;width:233px;height:233px;border:2px solid #536483;border-radius:50%;right:20px;top:13px}
     .art-card{position:absolute;right:47px;top:45px;width:190px;height:190px;background:#f9f7ef;border-radius:26px;transform:rotate(12deg);box-shadow:17px 18px 0 #344762;display:flex;align-items:center;justify-content:center}
     .art-card span{font-size:92px;font-weight:800;color:#f1bf37;line-height:1}
     .spark{position:absolute;color:var(--yellow);font-size:30px;font-weight:800}
     .spark.one{left:16px;top:28px}.spark.two{right:0;bottom:5px}.spark.three{left:28px;bottom:29px;font-size:20px}
     main{padding:38px 0 65px}
-    .search-panel{background:white;border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:0 12px 36px rgba(27,43,72,.05)}
+    .summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
+    .lookup-message{margin:14px 0 0;color:#a33b2b;font-size:14px;font-weight:600}
+    .lookup-message:empty{display:none}
+    .summary-card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:21px 23px;box-shadow:0 8px 28px rgba(27,43,72,.035)}
+    .summary-card span{display:block;color:var(--muted);font-size:14px;margin-bottom:8px}
+    .summary-card strong{display:block;color:var(--navy);font-size:31px;line-height:1.2}
+    .summary-card small{font-size:14px;font-weight:500;color:var(--muted)}
+    .search-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:0 12px 36px rgba(27,43,72,.05)}
     .section-heading{display:flex;align-items:flex-start;gap:14px;margin-bottom:22px}
     .heading-icon{width:43px;height:43px;border-radius:12px;background:#fff3cc;color:#a97700;display:grid;place-items:center;flex:none}
     h2{font-size:25px;letter-spacing:-.04em;margin:0 0 4px;color:var(--navy)}
     .subtext{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
-    .search-row{display:flex;gap:12px}
+    .search-row{display:flex;gap:12px;align-items:end}
     .field-wrap{flex:1}
     label{display:block;font-weight:700;font-size:14px;margin-bottom:9px}
     input{width:100%;height:51px;border:1px solid #d8dce5;border-radius:11px;padding:0 16px;font-size:15px;color:var(--ink);background:#fff}
     input::placeholder{color:#9ba4b3}
-    .search-button{align-self:end;height:51px;border:0;border-radius:11px;background:var(--navy);color:white;padding:0 26px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:9px}
+    .search-button{height:51px;border:0;border-radius:11px;background:var(--navy);color:#fff;padding:0 26px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:9px}
     .search-button:hover{background:#263d67}
-    .demo-note{margin:15px 0 0;color:var(--muted);font-size:13px}
-    .demo-note strong{color:var(--navy)}
+    .table-section{margin-top:30px}
+    .table-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+    .table-heading h2{font-size:22px;margin:0}
+    .tag{background:#e9f5ef;color:#26745a;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:700;white-space:nowrap}
+    .table-wrap{background:#fff;border:1px solid var(--line);border-radius:20px;overflow-x:auto;box-shadow:0 12px 36px rgba(27,43,72,.04)}
+    table{width:100%;border-collapse:collapse;text-align:left}
+    th{background:#fdf9e9;color:var(--navy);font-size:14px;font-weight:800;padding:17px 24px;white-space:nowrap}
+    td{padding:15px 24px;border-top:1px solid var(--line);font-size:15px}
+    th:first-child,td:first-child{width:65px;color:var(--muted)}
+    th:last-child,td:last-child{text-align:right;width:145px}
+    tbody tr:hover{background:#fafbfe}
+    .student-button{border:0;background:none;color:var(--navy);font-size:15px;font-weight:700;padding:3px 0;text-align:left;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px}
+    .student-button:hover{text-decoration-color:currentColor}
+    .score-value{display:inline-block;background:#fff3cc;color:#765600;border-radius:9px;padding:5px 12px;font-weight:800;min-width:44px;text-align:center}
+    .no-results{padding:32px;text-align:center;color:var(--muted)}
     .result-area{margin-top:30px}
-    .result-header{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:16px}
-    .result-header h2{font-size:22px;margin:0}
-    .tag{background:#e9f5ef;color:#26745a;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:700}
+    .result-area h2{font-size:22px;margin-bottom:16px}
     .result-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 12px 36px rgba(27,43,72,.04)}
-    .result-top{background:#fdf9e9;padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #f0e9d5}
+    .result-top{background:#fdf9e9;padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px}
     .student-label{font-size:12px;color:#806b36;font-weight:700;margin-bottom:5px}
     .student-name{font-size:25px;font-weight:800;color:var(--navy);letter-spacing:-.035em}
     .student-meta{font-size:13px;color:#77736b;margin-top:4px}
-    .score-badge{background:var(--navy);color:white;min-width:116px;text-align:center;border-radius:16px;padding:12px 16px}
+    .score-badge{background:var(--navy);color:#fff;min-width:116px;text-align:center;border-radius:16px;padding:12px 16px}
     .score-badge strong{font-size:34px;line-height:1;display:block}
     .score-badge span{font-size:12px;color:#c7d2e5}
-    .result-body{padding:28px 30px 30px}
-    .body-title{font-size:16px;font-weight:800;color:var(--navy);margin:0 0 18px}
-    .score-list{display:grid;gap:17px}
-    .score-item-head{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:8px}
-    .score-item-head strong{color:var(--navy)}
-    .track{height:9px;background:#eef0f4;border-radius:99px;overflow:hidden}
-    .fill{height:100%;background:var(--yellow);border-radius:99px}
-    .result-footer{margin-top:25px;padding:17px 19px;border-radius:13px;background:#edf7f2;color:#236b50;display:flex;align-items:flex-start;gap:11px;font-size:14px;line-height:1.65}
-    .empty{padding:42px 24px;text-align:center;background:#fff;border:1px dashed #cbd1dc;border-radius:20px;color:var(--muted)}
-    .empty svg{color:#9ca9bc}
+    .empty{padding:34px 24px;text-align:center;background:#fff;border:1px dashed #cbd1dc;border-radius:20px;color:var(--muted)}
     .empty h3{color:var(--navy);font-size:19px;margin:10px 0 5px}
     .empty p{margin:0;font-size:14px}
-    .criteria{margin-top:34px}
-    .criteria h2{font-size:22px;margin-bottom:16px}
-    .criteria-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .criterion{background:white;border:1px solid var(--line);border-radius:15px;padding:19px}
-    .criterion strong{display:block;color:var(--navy);font-size:21px}
-    .criterion span{color:var(--muted);font-size:13px}
-    .criterion .grade{display:inline-block;float:right;border-radius:9px;background:#fff1bd;padding:4px 9px;color:#856000;font-weight:800;font-size:13px}
     footer{border-top:1px solid #e7e5dd;padding:23px 0 32px;color:#7b8391;font-size:12px;text-align:center}
     i[data-lucide],svg.lucide{width:19px;height:19px;flex:none}
-    @media(max-width:760px){.hero-art{opacity:.16;right:-60px}.hero-inner{min-height:345px}.criteria-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:540px){.shell{padding:0 18px}.topbar-inner{min-height:70px}.brand{font-size:14px}.brand-mark{width:37px;height:37px;font-size:21px}.top-pill{display:none}.hero-inner{padding-top:34px;padding-bottom:48px;min-height:315px}.hero p{font-size:15px}.search-panel{padding:22px}.search-row{flex-direction:column}.search-button{align-self:stretch;justify-content:center}.result-top{padding:22px;align-items:flex-start}.student-name{font-size:20px}.score-badge{min-width:89px;padding:11px}.score-badge strong{font-size:27px}.result-body{padding:22px}.criteria-grid{gap:9px}.criterion{padding:14px}.criterion strong{font-size:17px}}
+    @media(max-width:760px){.hero-art{opacity:.16;right:-60px}.summary-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:540px){.shell{padding:0 18px}.topbar-inner{min-height:70px}.brand{font-size:14px}.brand-mark{width:37px;height:37px;font-size:21px}.top-pill{display:none}.hero-inner{padding-top:34px;padding-bottom:48px;min-height:315px}.hero p{font-size:15px}.search-panel{padding:22px}.search-row{flex-direction:column;align-items:stretch}.search-button{width:100%}.summary-card{padding:16px}.summary-card strong{font-size:25px}th,td{padding:13px 14px}.result-top{padding:22px}.student-name{font-size:20px}.score-badge{min-width:89px;padding:11px}.score-badge strong{font-size:27px}}
   </style>
   <script src="/_sdk/9004216d282a9ba4.data_sdk.js" type="text/javascript" integrity="sha512-/mzxa459qqFtJ+3zVo1SrEfPBeA3N/1qyd1xQiMsOJYiGSyYcFhqn79DaV8lbrFwJURsFyIdrdQms9lzsNzptA=="></script>
   <script src="/_sdk/da84da91ddc761f8.editing_sdk.js" type="text/javascript" integrity="sha512-+i8UqZoLJafKFo2hLASVxyPgXjPGDHqTbMKFge2vXfp6axm9knghh+474gc250CGH9YxpI5zViZ0NNqgNphvVg=="></script>
@@ -96,7 +98,7 @@
     <div class="brand">
      <span class="brand-mark" aria-hidden="true">∑</span><span>ห้องเรียนคณิตศาสตร์ ป.4</span>
     </div>
-    <span class="top-pill canva-tag">ภาคเรียนที่ 1 · ปีการศึกษา 2568</span>
+    <span class="top-pill canva-tag">ประกาศคะแนนวิชาคณิตศาสตร์</span>
    </div>
   </header>
   <section class="hero canva-banner" aria-labelledby="page-title">
@@ -106,9 +108,9 @@
      <h1 id="page-title">ประกาศคะแนน
       <br>
       วิชาคณิตศาสตร์</h1>
-     <p>ตรวจสอบผลการเรียนของนักเรียนชั้นประถมศึกษาปีที่ 4
+     <p>ตรวจสอบคะแนนของนักเรียนชั้นประถมศึกษาปีที่ 4
       <br>
-      พร้อมดูคะแนนแยกตามหัวข้อได้ในที่เดียว</p>
+      กรอกเลขที่ของตนเองเพื่อดูประกาศคะแนนรายบุคคล</p>
      <a class="hero-button canva-button" href="#search-section">ตรวจสอบคะแนน <i data-lucide="arrow-down" aria-hidden="true"></i></a>
     </div>
     <div class="hero-art" aria-hidden="true">
@@ -127,79 +129,108 @@
       <i data-lucide="search"></i>
      </div>
      <div>
-      <h2 id="search-title">ค้นหาคะแนนของนักเรียน</h2>
-      <p class="subtext">กรอกรหัสนักเรียนหรือชื่อ เพื่อดูรายละเอียดคะแนน</p>
+      <h2 id="search-title">ตรวจสอบคะแนนของตนเอง</h2>
+      <p class="subtext">กรอกเลขที่ในชั้นเรียนของตนเอง (1–10) เพื่อดูคะแนนรายบุคคล</p>
      </div>
     </div>
-    <form id="search-form" class="search-row">
+    <form id="search-form" class="search-row" role="search">
      <div class="field-wrap">
-      <label for="student-query">รหัสนักเรียนหรือชื่อ</label> <input id="student-query" class="canva-input" type="search" autocomplete="off" placeholder="เช่น 401 หรือ เด็กหญิงพิมพ์ดาว">
+      <label for="student-query">เลขที่ของนักเรียน</label> <input id="student-query" class="canva-input" type="text" inputmode="numeric" autocomplete="off" placeholder="กรอกเลขที่ของตนเอง" aria-describedby="lookup-message">
      </div>
      <button class="search-button canva-button" type="submit"><i data-lucide="search" aria-hidden="true"></i> ค้นหาคะแนน</button>
     </form>
-    <p class="demo-note">ข้อมูลตัวอย่างสมมติสำหรับสาธิตการใช้งาน · ลองค้นหา <strong>401</strong>, <strong>402</strong> หรือ <strong>403</strong></p>
+    <p id="lookup-message" class="lookup-message canva-text" role="status" aria-live="polite"></p>
    </section>
    <section class="result-area canva-section" aria-labelledby="result-title">
-    <div class="result-header">
-     <h2 id="result-title">ผลการค้นหา</h2>
-     <span class="tag canva-tag">คะแนนเต็ม 100 คะแนน</span>
-    </div>
-    <div id="result-content" aria-live="polite"></div>
-   </section>
-   <section class="criteria canva-section" aria-labelledby="criteria-title">
-    <h2 id="criteria-title">เกณฑ์ระดับผลการเรียน</h2>
-    <div class="criteria-grid">
-     <div class="criterion canva-card">
-      <span class="grade">ดีเยี่ยม</span><strong>80–100</strong><span>คะแนน</span>
-     </div>
-     <div class="criterion canva-card">
-      <span class="grade">ดี</span><strong>70–79</strong><span>คะแนน</span>
-     </div>
-     <div class="criterion canva-card">
-      <span class="grade">พอใช้</span><strong>60–69</strong><span>คะแนน</span>
-     </div>
-     <div class="criterion canva-card">
-      <span class="grade">ควรพัฒนา</span><strong>0–59</strong><span>คะแนน</span>
+    <h2 id="result-title">ผลคะแนนรายบุคคล</h2>
+    <div id="result-content" aria-live="polite">
+     <div class="empty canva-card">
+      <i data-lucide="book-open" aria-hidden="true"></i>
+      <h3>พร้อมตรวจสอบคะแนน</h3>
+      <p>กรอกเลขที่ของตนเองด้านบนแล้วกดค้นหาคะแนน</p>
      </div>
     </div>
    </section>
   </main>
   <footer class="canva-footer">
-   <div class="shell">ข้อมูลและรายชื่อนักเรียนบนหน้านี้เป็นตัวอย่างสมมติ ไม่ใช่ประกาศคะแนนอย่างเป็นทางการ</div>
+   <div class="shell">ประกาศคะแนนวิชาคณิตศาสตร์ ชั้นประถมศึกษาปีที่ 4</div>
   </footer>
   <script>
     const students = [
-      {id:"401",name:"เด็กหญิงพิมพ์ดาว ใจดี",room:"ป.4/1",scores:[["จำนวนนับและการคำนวณ",28,30],["เศษส่วนและทศนิยม",25,30],["การวัดและเรขาคณิต",18,20],["การแก้โจทย์ปัญหา",17,20]]},
-      {id:"402",name:"เด็กชายต้นกล้า รุ่งเรือง",room:"ป.4/1",scores:[["จำนวนนับและการคำนวณ",24,30],["เศษส่วนและทศนิยม",22,30],["การวัดและเรขาคณิต",16,20],["การแก้โจทย์ปัญหา",14,20]]},
-      {id:"403",name:"เด็กหญิงข้าวหอม แสนสุข",room:"ป.4/1",scores:[["จำนวนนับและการคำนวณ",20,30],["เศษส่วนและทศนิยม",18,30],["การวัดและเรขาคณิต",14,20],["การแก้โจทย์ปัญหา",13,20]]}
+      {name:"เด็กชายเรืองฤทธิ์ สามัคคี",score:27},
+      {name:"เด็กชายชินชูนา มีเสถียร",score:26},
+      {name:"เด็กชายต่อตระกูล โชคชะนะ",score:25},
+      {name:"เด็กชายธนภัทร ทรงสุภาพ",score:25},
+      {name:"เด็กชายธนภัทร พลีสิงห์",score:27},
+      {name:"เด็กชายคุณากร ชมชื่น",score:25},
+      {name:"เด็กชายกฤษณิน รื่นบุตร",score:24},
+      {name:"เด็กชายณัฐพล จิตตาคม",score:25},
+      {name:"เด็กชายธนภัทร เจริญสุข",score:26},
+      {name:"เด็กชายธีรธวัช วายนต์",score:22}
     ];
-    const result = document.getElementById("result-content");
     const input = document.getElementById("student-query");
-    function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-    function empty(title,description){
-      result.innerHTML=`<div class="empty canva-card"><i data-lucide="book-open" aria-hidden="true"></i><h3>${title}</h3><p>${description}</p></div>`;
-      lucide.createIcons();
+    const result = document.getElementById("result-content");
+    const message = document.getElementById("lookup-message");
+    const initialResult = result.innerHTML;
+    function clearResult(){ result.innerHTML = initialResult; lucide.createIcons(); }
+    function normalizeNumber(value){
+      return value.replace(/[๐-๙]/g, digit => String("๐๑๒๓๔๕๖๗๘๙".indexOf(digit)))
+                  .replace(/[٠-٩]/g, digit => String("٠١٢٣٤٥٦٧٨٩".indexOf(digit))).trim();
     }
-    function renderStudent(s){
-      const total=s.scores.reduce((sum,item)=>sum+item[1],0);
-      const grade=total>=80?"ดีเยี่ยม":total>=70?"ดี":total>=60?"พอใช้":"ควรพัฒนา";
-      const tip=total>=80?"ยอดเยี่ยมมาก! รักษาความตั้งใจและฝึกฝนต่อไปนะ":total>=70?"ทำได้ดีมาก! ลองฝึกโจทย์เพิ่มเติมเพื่อเพิ่มความมั่นใจ":total>=60?"ทำได้ดีแล้ว ลองทบทวนหัวข้อที่ยังไม่ถนัดอีกนิดนะ":"ค่อย ๆ ฝึกฝนและขอคำแนะนำจากคุณครูได้เสมอนะ";
-      result.innerHTML=`<article class="result-card canva-card">
-        <div class="result-top"><div><div class="student-label">ผลคะแนนนักเรียน</div><div class="student-name">${escapeHTML(s.name)}</div><div class="student-meta">รหัสนักเรียน ${escapeHTML(s.id)} · ชั้น ${escapeHTML(s.room)} · ภาคเรียนที่ 1/2568</div></div><div class="score-badge"><strong>${total}</strong><span>จาก 100 คะแนน</span></div></div>
-        <div class="result-body"><h3 class="body-title">รายละเอียดคะแนนรายหัวข้อ <span style="color:#8a94a5;font-weight:500">· ระดับ${grade}</span></h3>
-        <div class="score-list">${s.scores.map(([name,score,max])=>`<div><div class="score-item-head"><span>${escapeHTML(name)}</span><strong>${score} / ${max}</strong></div><div class="track canva-progress" role="progressbar" aria-label="${escapeHTML(name)}" aria-valuenow="${score}" aria-valuemin="0" aria-valuemax="${max}"><div class="fill" style="width:${score/max*100}%"></div></div></div>`).join("")}</div>
-        <div class="result-footer"><i data-lucide="sparkles" aria-hidden="true"></i><span>${tip}</span></div></div></article>`;
-      lucide.createIcons();
+
+    function showStudent(student){
+      result.replaceChildren();
+      const card = document.createElement("article");
+      card.className = "result-card canva-card";
+      const top = document.createElement("div");
+      top.className = "result-top";
+      const details = document.createElement("div");
+      const label = document.createElement("div");
+      label.className = "student-label";
+      label.textContent = "ผลคะแนนนักเรียน";
+      const name = document.createElement("div");
+      name.className = "student-name";
+      name.textContent = student.name;
+      const meta = document.createElement("div");
+      meta.className = "student-meta";
+      meta.textContent = "วิชาคณิตศาสตร์ · ชั้นประถมศึกษาปีที่ 4";
+      details.append(label,name,meta);
+      const badge = document.createElement("div");
+      badge.className = "score-badge";
+      const value = document.createElement("strong");
+      value.textContent = student.score;
+      const unit = document.createElement("span");
+      unit.textContent = "คะแนน";
+      badge.append(value,unit);
+      top.append(details,badge);
+      card.appendChild(top);
+      result.appendChild(card);
     }
-    document.getElementById("search-form").addEventListener("submit",function(event){
+
+    document.getElementById("search-form").addEventListener("submit",event => {
       event.preventDefault();
-      const q=input.value.trim().toLocaleLowerCase("th");
-      if(!q){empty("เริ่มค้นหาคะแนน","กรอกรหัสนักเรียนหรือชื่อในช่องค้นหาด้านบน");input.focus();return;}
-      const match=students.find(s=>s.id===q||s.name.toLocaleLowerCase("th").includes(q));
-      if(match) renderStudent(match);
-      else empty("ไม่พบข้อมูลที่ค้นหา","ตรวจสอบชื่อหรือรหัสนักเรียนอีกครั้ง หรือทดลองรหัสตัวอย่าง 401–403");
+      const value = normalizeNumber(input.value);
+      clearResult();
+      message.textContent = "";
+      input.removeAttribute("aria-invalid");
+      if (!/^[1-9][0-9]*$/.test(value)) {
+        message.textContent = "กรุณากรอกเลขที่เป็นจำนวนเต็มบวกที่ถูกต้อง";
+        input.setAttribute("aria-invalid","true");
+        input.focus();
+        return;
+      }
+      const index = Number(value) - 1;
+      if (index >= students.length) {
+        message.textContent = "ไม่พบข้อมูลคะแนนสำหรับเลขที่นี้ กรุณาตรวจสอบแล้วลองใหม่";
+        input.setAttribute("aria-invalid","true");
+        input.focus();
+        return;
+      }
+      showStudent(students[index]);
+      document.getElementById("result-title").scrollIntoView({behavior:"smooth",block:"start"});
     });
-    empty("พร้อมตรวจสอบคะแนน","กรอกรหัสนักเรียนหรือชื่อเพื่อดูผลคะแนนตัวอย่าง");
+    input.addEventListener("input",() => { message.textContent = ""; input.removeAttribute("aria-invalid"); clearResult(); });
+    lucide.createIcons();
   </script>
  </body>
 </html>
